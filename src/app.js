@@ -1,10 +1,9 @@
 const express = require("express");
-
 const app = express();
-
+const userControllers = require("./controllers/userControllers");
 const movieControllers = require("./controllers/movieControllers");
-
+app.get("/api/users", userControllers.getUsers);
+app.get("/api/users/:id", userControllers.getUsersByID);
 app.get("/api/movies", movieControllers.getMovies);
 app.get("/api/movies/:id", movieControllers.getMovieById);
-
 module.exports = app;
